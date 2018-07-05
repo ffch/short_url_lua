@@ -68,7 +68,7 @@ function _M.getUrl(surl)
 		ngx.say("failed to connect: ", err, ": ", errcode, " ", sqlstate, "<br/>")
 		return
 	end
-	local sql = "select url from t_short_url where surl = " .. surl
+	local sql = "select url from t_short_url where surl = \'" .. surl .."\'"
     local res, err, errcode, sqlstate =
 		db:query(sql,1)
 	if not res then
